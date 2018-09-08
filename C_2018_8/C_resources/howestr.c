@@ -3,25 +3,25 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
-// ¶¨Òå³£Êı
-#define LEN_STR 9999       // Æª×î´óÈİÁ¿
-#define NUM_WD 999         // µ¥´ÊÈİÁ¿
-#define LEN_WD 32          // µ¥¸öµ¥´Ê³¤¶È×î´óÖµ
-#define LEN_LINE 256        // ĞĞ×î´óÈİÁ¿
+// å®šä¹‰å¸¸æ•°
+#define LEN_STR 9999       // ç¯‡æœ€å¤§å®¹é‡
+#define NUM_WD 999         // å•è¯å®¹é‡
+#define LEN_WD 32          // å•ä¸ªå•è¯é•¿åº¦æœ€å¤§å€¼
+#define LEN_LINE 256        // è¡Œæœ€å¤§å®¹é‡
 
 int main(void) {
 
-	unsigned xl[NUM_WD] = { 0 };              // ¼ÇÂ¼µ¥´ÊÊ××ÖÄ¸ ĞòºÅ
-	unsigned index = 0;                        // µ¥´Ê ĞòºÅ
-	unsigned indx = 0;                        // ×Ö·û ×ÜĞòºÅ
-	unsigned char str_ary[LEN_LINE];                 // Ã¿ĞĞ¿ÉÊäÈë³¤¶È
-	unsigned char str_Ary[LEN_STR];              // Æª×Ü×Ö·û
+	unsigned xl[NUM_WD] = { 0 };              // è®°å½•å•è¯é¦–å­—æ¯ åºå·
+	unsigned index = 0;                        // å•è¯ åºå·
+	unsigned indx = 0;                        // å­—ç¬¦ æ€»åºå·
+	unsigned char str_ary[LEN_LINE];                 // æ¯è¡Œå¯è¾“å…¥é•¿åº¦
+	unsigned char str_Ary[LEN_STR];              // ç¯‡æ€»å­—ç¬¦
 
-	unsigned char words[NUM_WD][LEN_WD];          // ×Ö·ûÕûÀí¼¯ºÏ
+	unsigned char words[NUM_WD][LEN_WD];          // å­—ç¬¦æ•´ç†é›†åˆ
 
 	printf("\n homework 8-12 2018-8-10 \n\n ");
-	printf("\n ÊäÈëÈÎÒâ³¤¶È×Ö·û´®ÎÄ±¾£¨ÉÏÏŞ1023£© ²»°üº¬µ¥ÒıºÅ ¿É»Ø³µ ¿É¿Õ¸ñ Ã¿ĞĞ×î¶à 120 ×Ö·û \n ");
-	printf("\n ÊäÈë start »Ø³µ ÏÔÊ¾ÊäÈë½á¹û \n\n ÊäÈë q »Ø³µ ÍË³ö \n\n ÊäÈë new »Ø³µ Çå³ıÊı¾İÖØĞÂÊäÈë \n\n ------------------------------------------------------------ \n\n ");
+	printf("\n è¾“å…¥ä»»æ„é•¿åº¦å­—ç¬¦ä¸²æ–‡æœ¬ï¼ˆä¸Šé™1023ï¼‰ ä¸åŒ…å«å•å¼•å· å¯å›è½¦ å¯ç©ºæ ¼ æ¯è¡Œæœ€å¤š 120 å­—ç¬¦ \n ");
+	printf("\n è¾“å…¥ start å›è½¦ æ˜¾ç¤ºè¾“å…¥ç»“æœ \n\n è¾“å…¥ q å›è½¦ é€€å‡º \n\n è¾“å…¥ new å›è½¦ æ¸…é™¤æ•°æ®é‡æ–°è¾“å…¥ \n\n ------------------------------------------------------------ \n\n ");
 	while (strcmp(fgets(str_ary, 256, stdin), "q\n") != 0) {
 		printf("\n ");
 		if (strcmp(str_ary, "new\n") == 0) {
@@ -30,13 +30,13 @@ int main(void) {
 			for (size_t i = 0; i < NUM_WD; i++) xl[i] = 0;
 			index = 0;
 			indx = 0;
-			printf(" \n ÒÑÖØÖÃ¼ÇÂ¼Æ÷ \n\n ÊäÈë start »Ø³µ ÏÔÊ¾ÊäÈë½á¹û \n\n ÊäÈë q »Ø³µ ÍË³ö \n\n ------------------------------------------------------------ \n\n ");
+			printf(" \n å·²é‡ç½®è®°å½•å™¨ \n\n è¾“å…¥ start å›è½¦ æ˜¾ç¤ºè¾“å…¥ç»“æœ \n\n è¾“å…¥ q å›è½¦ é€€å‡º \n\n ------------------------------------------------------------ \n\n ");
 		}
 		else if (strcmp(str_ary, "start\n") == 0) {
 			*(str_Ary + indx) = '\n';
 			index = 0;
 			if (isalnum(*(str_Ary + 0)) != 0) {
-				// µ±Ê×Î»Îª×ÖÄ¸ ±Ø¶¨×é³Éµ¥´Ê
+				// å½“é¦–ä½ä¸ºå­—æ¯ å¿…å®šç»„æˆå•è¯
 				xl[index] = 0;
 				//printf(" \n %u word start with %u \n\n ", index + 1, xl[index] + 1);
 				index++;
@@ -44,17 +44,17 @@ int main(void) {
 			for (size_t i = 0; i < indx; i++) {
 				if (isalnum(*(str_Ary + i)) == 0 && isalnum(*(str_Ary + i + 1)) != 0)
 				{
-					//  µÚ index+1 ¸öµ¥´Ê¿ªÍ·   µÚ1¸ö¿ªÍ·Îª 0 
+					//  ç¬¬ index+1 ä¸ªå•è¯å¼€å¤´   ç¬¬1ä¸ªå¼€å¤´ä¸º 0 
 					xl[index] = i + 1;
 					//printf(" \n %u word start with %u \n ", index + 1, xl[index] + 1);
 					index++;
 				}
 			}
 			if (index == 0) {
-				printf(" \n Ò»¸öµ¥´ÊÒ²ÕÒ²»µ½£¬ÇëÊäÈëÓĞĞ§ÎÄ×Ö»ò¶ÌÓï \n\n ");
+				printf(" \n ä¸€ä¸ªå•è¯ä¹Ÿæ‰¾ä¸åˆ°ï¼Œè¯·è¾“å…¥æœ‰æ•ˆæ–‡å­—æˆ–çŸ­è¯­ \n\n ");
 			}
 			else {
-				printf(" \n °´×ÖÄ¸Ë³ĞòÅÅÁĞ ²¢Í³¼Æµ¥´Ê³öÏÖ´ÎÊı \n ");
+				printf(" \n æŒ‰å­—æ¯é¡ºåºæ’åˆ— å¹¶ç»Ÿè®¡å•è¯å‡ºç°æ¬¡æ•° \n ");
 				printf(" \n All %u words in this passage \n\n ------------------------------------------------------------ \n ", index);
 
 				for (size_t i = 0, ndx = 0; i < indx; i++) {
@@ -69,7 +69,7 @@ int main(void) {
 						ndx++;
 					}
 				}
-				// °´Ê××ÖÄ¸ ÅÅĞò Ê××ÖÄ¸ÏàÍ¬ ÒÀ´ÎÑ°ÕÒµÚ¶ş¸öµÚÈı¸ö
+				// æŒ‰é¦–å­—æ¯ æ’åº é¦–å­—æ¯ç›¸åŒ ä¾æ¬¡å¯»æ‰¾ç¬¬äºŒä¸ªç¬¬ä¸‰ä¸ª
 				unsigned char tmp[1][LEN_WD] = { '\0' };
 				for (size_t i = 1; i < index; i++) {
 					for (size_t m = 0; m < index - 1; m++) {
@@ -83,19 +83,19 @@ int main(void) {
 					}
 				}
 
-				// ÕÒÖØ¸´µ¥´Ê ²¢Í³¼Æ´ÎÊı
+				// æ‰¾é‡å¤å•è¯ å¹¶ç»Ÿè®¡æ¬¡æ•°
 				unsigned num_index[NUM_WD] = { 0 };
 				num_index[0] = 1;
-				for (size_t i = 0; i < index - 1;) { // ÖØ¸´±éÀú 
+				for (size_t i = 0; i < index - 1;) { // é‡å¤éå† 
 					if (strcmp(words[i], words[i + 1]) == 0) {
-						// ±È½ÏÏàÁÚµÄÁ½¸öµ¥´Ê ÏàÍ¬Ê±Ö´ĞĞ²Ù×÷
+						// æ¯”è¾ƒç›¸é‚»çš„ä¸¤ä¸ªå•è¯ ç›¸åŒæ—¶æ‰§è¡Œæ“ä½œ
 						num_index[i]++;
-						for (size_t j = i; j < index - 2; j++) { // ½«Î»ÓÚÖØ¸´µ¥´Ê¸²¸Ç£¬ÏòÇ°¸²¸ÇÒ»Î»
+						for (size_t j = i; j < index - 2; j++) { // å°†ä½äºé‡å¤å•è¯è¦†ç›–ï¼Œå‘å‰è¦†ç›–ä¸€ä½
 							for (size_t s = 0; s < LEN_WD; s++) {
 								words[j + 1][s] = words[j + 2][s];
 							}
 						}
-						index--; // µ¥´ÊÊıÉÙÒ»Î»
+						index--; // å•è¯æ•°å°‘ä¸€ä½
 					}
 					else {
 						i++;
@@ -113,9 +113,9 @@ int main(void) {
 						printf("%c", words[i][j]);
 						j++;
 					}
-					printf("   %u ´Î \n ", num_index[i]);
+					printf("   %u æ¬¡ \n ", num_index[i]);
 				}
-				printf(" \n ------------------------------------------------------------ \n\n Äã¿ÉÒÔ ¼ÌĞøÊäÈëÎÄ¶Î   »òÕß \n\n ÊäÈë start »Ø³µ ÏÔÊ¾ÊäÈë½á¹û \n\n ÊäÈë q »Ø³µ ÍË³ö \n\n ÊäÈë new »Ø³µ Çå³ıÊı¾İ ÖØĞÂÊäÈë \n\n ");
+				printf(" \n ------------------------------------------------------------ \n\n ä½ å¯ä»¥ ç»§ç»­è¾“å…¥æ–‡æ®µ   æˆ–è€… \n\n è¾“å…¥ start å›è½¦ æ˜¾ç¤ºè¾“å…¥ç»“æœ \n\n è¾“å…¥ q å›è½¦ é€€å‡º \n\n è¾“å…¥ new å›è½¦ æ¸…é™¤æ•°æ® é‡æ–°è¾“å…¥ \n\n ");
 			}
 		}
 		else {

@@ -14,7 +14,7 @@ add C something_in
 
 1. litle slogin 1
 2. litle slogin 2
-3. litle slogin 2
+3. litle slogin 3
 > code line `function`
 ```html
 <html lang = "US"><style>*{background: #2c2c2c;color: #909897;}.a{text-deraction:none;}</style><body><a href ="https://github.com">github</a></body></html>
