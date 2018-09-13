@@ -5,8 +5,9 @@
 int main(void){
     
     printf("+=============================+\n");
-    printf("+===== ÄãºÃ  hello world =====+\n");
+    printf("+=======  hello world  =======+\n");
     printf("+=============================+\n");
     
     // return;
 }
+   

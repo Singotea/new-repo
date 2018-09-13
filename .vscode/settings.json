@@ -1,3 +1,7 @@
 {
+    "files.associations": {
+        "stdio.h": "c",
+        "cstdio": "c"
+    }
     // nothing 
 }
