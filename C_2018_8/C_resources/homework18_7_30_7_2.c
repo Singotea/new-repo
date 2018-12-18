@@ -25,7 +25,7 @@ int main(void) {
 	char tem_Add;
 
 	printf("\n ==== homework 7-2 2018-07-30 ==== \n\n ");
-
+	printf("ÊäÈëÊı¾İ\n");
 	while (strcmp(fgets(temperature_str, STRLEN, stdin), "q\n") != 0) {
 		len_tem_str = strlen(temperature_str);
 		if ((*(temperature_str) == '\n')) {
