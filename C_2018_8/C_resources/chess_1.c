@@ -9,30 +9,30 @@
 #include <Windows.h>
 #define MAX_L 12 
 
-//  è¾“å…¥åˆ¤æ–­å‡½æ•° q é€€å‡º æŒ‡ä»¤é›†å¦‚ä¸‹
-//  start å¼€å±€ show æŸ¥çœ‹å¾—åˆ† back é€€ä¸€æ­¥ new é‡æ–°å¼€å§‹ ï¼ˆyes åŒæ„ no å–æ¶ˆï¼‰å¤‡ç”¨
-//  ä¸‹æ£‹å¯¹å¼ˆæ—¶ è¾“å…¥ nn nn çš„5ä½å­—ç¬¦è¿›è¡Œ
-//  AIäº”å­æ£‹ç®—æ³•
+//  ÊäÈëÅĞ¶Ïº¯Êı q ÍË³ö Ö¸Áî¼¯ÈçÏÂ
+//  start ¿ª¾Ö show ²é¿´µÃ·Ö back ÍËÒ»²½ new ÖØĞÂ¿ªÊ¼ £¨yes Í¬Òâ no È¡Ïû£©±¸ÓÃ
+//  ÏÂÆå¶ÔŞÄÊ± ÊäÈë nn nn µÄ5Î»×Ö·û½øĞĞ
+//  AIÎå×ÓÆåËã·¨
 
 //  lev --------------------------------------
-//  4 æ­»4
-//  3 æ´»3
-//  2 æ´»2
-//  1 å­¤ç«‹
-//  0 å…¶ä»–
+//  4 ËÀ4
+//  3 »î3
+//  2 »î2
+//  1 ¹ÂÁ¢
+//  0 ÆäËû
 
-//  AI æ°´å¹³éå†
+//  AI Ë®Æ½±éÀú
 unsigned line_X(char *xy, unsigned i, unsigned j, char ch) {
 	unsigned X = 0;
 	unsigned S = 0;
 	unsigned lev = 0;
-	int tmp1 = 0;  //  èµ·å§‹ä½ç½®
-	int tmp2 = 0;  //  ç»“æŸä½ç½®
-	int nx = 0;  //  ä¸ªæ•°
+	int tmp1 = 0;  //  ÆğÊ¼Î»ÖÃ
+	int tmp2 = 0;  //  ½áÊøÎ»ÖÃ
+	int nx = 0;  //  ¸öÊı
 	//int ny = 0;  
 	//int nz = 0;  
 	if (xy[i * MAX_L + j] == ' ') {
-		//  è®¡ç®—æ°´å¹³æ–¹å‘
+		//  ¼ÆËãË®Æ½·½Ïò
 		tmp1 = j - 4;
 		tmp2 = j + 4;
 		if (j - 4 < 0) {
@@ -63,16 +63,16 @@ unsigned line_X(char *xy, unsigned i, unsigned j, char ch) {
 	}
 	return lev;
 }
-//  AI å‚ç›´éå†
+//  AI ´¹Ö±±éÀú
 unsigned line_Y(char *xy, unsigned i, unsigned j, char ch) {
 	unsigned X = 0;
 	unsigned S = 0;
 	unsigned lev = 0;
-	int tmp1 = 0;  //  èµ·å§‹ä½ç½®
-	int tmp2 = 0;  //  ç»“æŸä½ç½®
-	int ny = 0;  //  ä¸ªæ•°
+	int tmp1 = 0;  //  ÆğÊ¼Î»ÖÃ
+	int tmp2 = 0;  //  ½áÊøÎ»ÖÃ
+	int ny = 0;  //  ¸öÊı
 	if (xy[i * MAX_L + j] == ' ') {
-		//  è®¡ç®—å‚ç›´æ–¹å‘
+		//  ¼ÆËã´¹Ö±·½Ïò
 		tmp1 = i - 4;
 		tmp2 = i + 4;
 		if (i - 4 < 0) tmp1 = 0;
@@ -101,16 +101,16 @@ unsigned line_Y(char *xy, unsigned i, unsigned j, char ch) {
 	}
 	return lev;
 }
-//  AI å¯¹è§’çº¿ 1 éå†
+//  AI ¶Ô½ÇÏß 1 ±éÀú
 unsigned line_L(char *xy, unsigned i, unsigned j, char ch) {
 	unsigned X = 0;
 	unsigned S = 0;
 	unsigned lev = 0;
-	int tmp1 = 0;  //  èµ·å§‹ä½ç½®
-	int tmp2 = 0;  //  ç»“æŸä½ç½®
-	int nz = 0;  //  ä¸ªæ•°
+	int tmp1 = 0;  //  ÆğÊ¼Î»ÖÃ
+	int tmp2 = 0;  //  ½áÊøÎ»ÖÃ
+	int nz = 0;  //  ¸öÊı
 	if (xy[i * MAX_L + j] == ' ') {
-		//  è®¡ç®—å¯¹è§’çº¿ 1 æ–¹å‘
+		//  ¼ÆËã¶Ô½ÇÏß 1 ·½Ïò
 		tmp1 = j - 4;
 		tmp2 = j + 4;
 		if (j - 4 < 0) {
@@ -145,16 +145,16 @@ unsigned line_L(char *xy, unsigned i, unsigned j, char ch) {
 	}
 	return lev;
 }
-//  AI å¯¹è§’çº¿ 2 éå† 
+//  AI ¶Ô½ÇÏß 2 ±éÀú 
 unsigned line_R(char *xy, unsigned i, unsigned j, char ch) {
 	unsigned X = 0;
 	unsigned S = 0;
 	unsigned lev = 0;
-	int tmp1 = 0;  //  èµ·å§‹ä½ç½®
-	int tmp2 = 0;  //  ç»“æŸä½ç½®
-	int nz = 0;  //  ä¸ªæ•°
+	int tmp1 = 0;  //  ÆğÊ¼Î»ÖÃ
+	int tmp2 = 0;  //  ½áÊøÎ»ÖÃ
+	int nz = 0;  //  ¸öÊı
 	if (xy[i * MAX_L + j] == ' ') {
-		//  è®¡ç®—å¯¹è§’çº¿ 2 æ–¹å‘
+		//  ¼ÆËã¶Ô½ÇÏß 2 ·½Ïò
 		tmp1 = j - 4;
 		tmp2 = j + 4;
 		if (j - 4 < 0) {
@@ -190,13 +190,13 @@ unsigned line_R(char *xy, unsigned i, unsigned j, char ch) {
 	return lev;
 }
 
-//  AI æ•´ä½“æ£‹å±€éå† -- æ­»4
+//  AI ÕûÌåÆå¾Ö±éÀú -- ËÀ4
 unsigned *AI_read_4(char *xy,unsigned *ab, char ch) {
 	unsigned Lev[4] = { 0 };
 	unsigned time = 0;
 	for (size_t i = 0; i < MAX_L; i++) {
 		for (size_t j = 0; j < MAX_L; j++) {
-			//  4æ–¹å‘å…¨éƒ¨éå†
+			//  4·½ÏòÈ«²¿±éÀú
 			Lev[0] = line_X(xy, i, j, ch);
 			Lev[1] = line_Y(xy, i, j, ch);
 			Lev[2] = line_L(xy, i, j, ch);
@@ -219,13 +219,13 @@ unsigned *AI_read_4(char *xy,unsigned *ab, char ch) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ•´ä½“æ£‹å±€éå† -- æ´»3
+//  AI ÕûÌåÆå¾Ö±éÀú -- »î3
 unsigned *AI_read_3(char *xy, unsigned *ab, char ch) {
 	unsigned Lev[4] = { 0 };
 	unsigned time = 0;
 	for (size_t i = 0; i < MAX_L; i++) {
 		for (size_t j = 0; j < MAX_L; j++) {
-			//  4æ–¹å‘å…¨éƒ¨éå†
+			//  4·½ÏòÈ«²¿±éÀú
 			Lev[0] = line_X(xy, i, j, ch);
 			Lev[1] = line_Y(xy, i, j, ch);
 			Lev[2] = line_L(xy, i, j, ch);
@@ -251,13 +251,13 @@ unsigned *AI_read_3(char *xy, unsigned *ab, char ch) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ•´ä½“æ£‹å±€éå† -- åŒ æ´»2
+//  AI ÕûÌåÆå¾Ö±éÀú -- Ë« »î2
 unsigned *AI_read_2(char *xy, unsigned *ab, char ch) {
 	unsigned Lev[4] = { 0 };
 	unsigned time = 0;
 	for (size_t i = 0; i < MAX_L; i++) {
 		for (size_t j = 0; j < MAX_L; j++) {
-			//  4æ–¹å‘å…¨éƒ¨éå†
+			//  4·½ÏòÈ«²¿±éÀú
 			Lev[0] = line_X(xy, i, j, ch);
 			Lev[1] = line_Y(xy, i, j, ch);
 			Lev[2] = line_L(xy, i, j, ch);
@@ -280,13 +280,13 @@ unsigned *AI_read_2(char *xy, unsigned *ab, char ch) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ•´ä½“æ£‹å±€éå† -- å• æ´»2
+//  AI ÕûÌåÆå¾Ö±éÀú -- µ¥ »î2
 unsigned *AI_read_1(char *xy, unsigned *ab, char ch) {
 	unsigned Lev[4] = { 0 };
 	unsigned time = 0;
 	for (size_t i = 0; i < MAX_L; i++) {
 		for (size_t j = 0; j < MAX_L; j++) {
-			//  4æ–¹å‘å…¨éƒ¨éå†
+			//  4·½ÏòÈ«²¿±éÀú
 			Lev[0] = line_X(xy, i, j, ch);
 			Lev[1] = line_Y(xy, i, j, ch);
 			Lev[2] = line_L(xy, i, j, ch);
@@ -309,13 +309,13 @@ unsigned *AI_read_1(char *xy, unsigned *ab, char ch) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ•´ä½“æ£‹å±€éå† -- ç‹¬ å­
+//  AI ÕûÌåÆå¾Ö±éÀú -- ¶À ×Ó
 unsigned *AI_read_0(char *xy, unsigned *ab, char ch) {
 	unsigned Lev[4] = { 0 };
 	unsigned time = 0;
 	for (size_t i = 0; i < MAX_L; i++) {
 		for (size_t j = 0; j < MAX_L; j++) {
-			//  4æ–¹å‘å…¨éƒ¨éå†
+			//  4·½ÏòÈ«²¿±éÀú
 			Lev[0] = line_X(xy, i, j, ch);
 			Lev[1] = line_Y(xy, i, j, ch);
 			Lev[2] = line_L(xy, i, j, ch);
@@ -338,7 +338,7 @@ unsigned *AI_read_0(char *xy, unsigned *ab, char ch) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ•´ä½“æ£‹å±€éå† -- ç‹¬å­ æ´»1 ï¼ˆå¼€å±€èµ°æ³•ï¼‰
+//  AI ÕûÌåÆå¾Ö±éÀú -- ¶À×Ó »î1 £¨¿ª¾Ö×ß·¨£©
 unsigned *AI_start(char *xy, unsigned *ab) {
 	for (size_t a = 0; a < MAX_L; a++) {
 		for (size_t b = 0; b < MAX_L; b++) {
@@ -357,7 +357,7 @@ unsigned *AI_start(char *xy, unsigned *ab) {
 	printf(" \n nothing AI can do \n\n ");
 	return ab;
 }
-//  AI æ”»å‡» å’Œ é˜²å¾¡ 
+//  AI ¹¥»÷ ºÍ ·ÀÓù 
 unsigned *AI_end(char *xy, unsigned *ab) {
 	ab = AI_read_4(xy, ab, 'Q');
 	if (ab[0] > MAX_L) ab = AI_read_4(xy, ab, 'X');
@@ -377,30 +377,30 @@ unsigned *AI_end(char *xy, unsigned *ab) {
 
 char *ope_INPUT(char *A) { 
 	while (strcmp(fgets(A, 8, stdin), "q\n") != 0) {
-		//  æŸ¥é”™é€»è¾‘1 è¿‡é‡ ç»§ç»­å¾ªç¯
+		//  ²é´íÂß¼­1 ¹ıÁ¿ ¼ÌĞøÑ­»·
 		if (*(A + 6) != '\0' && *(A + 6) != '\n') {
 			while (getchar() != '\n');
 			printf(" \n Error 1 Too many to take that words \n\n ");
 		}
-		//  ä¸‹æ£‹è¡Œä¸º è¿”å›ä¸‹æ£‹åæ ‡
+		//  ÏÂÆåĞĞÎª ·µ»ØÏÂÆå×ø±ê
 		else if (isdigit(*(A + 0)) && isdigit(*(A + 1)) && isdigit(*(A + 3)) && isdigit(*(A + 4)) && *(A + 2) == ' '&& *(A + 5) == '\n'){
 			return A;
 		}
-		//  æ“ä½œè¡Œä¸º è¿”å›æ“ä½œå‘½ä»¤
+		//  ²Ù×÷ĞĞÎª ·µ»Ø²Ù×÷ÃüÁî
 		else if (strcmp(A, "yes\n") == 0 || strcmp(A, "no\n") == 0 || strcmp(A, "start\n") == 0 || strcmp(A, "back\n") == 0 || strcmp(A, "new\n") == 0 || strcmp(A, "show\n") == 0) {
 			return A;
 		}
-		//  æŸ¥é”™é€»è¾‘ 2 ç»§ç»­å¾ªç¯
+		//  ²é´íÂß¼­ 2 ¼ÌĞøÑ­»·
 		else{
 			printf(" \n Error 2  Can not found the command line code \n\n ");
 		}
 		//printf(" \n INPUT = %s \n\n ", A);
-		//åˆå§‹åŒ– è¾“å…¥è®°å½•æ•°ç»„
+		//³õÊ¼»¯ ÊäÈë¼ÇÂ¼Êı×é
 		for (size_t i = 0; i < 8; i++) *(A + i) = '\0';
 	}
 	return "quit";
 }
-//  å‚æ•°ä¸ªæ•°å¯å˜çš„æ±‚å¹³å‡æ•° å‡½æ•°
+//  ²ÎÊı¸öÊı¿É±äµÄÇóÆ½¾ùÊı º¯Êı
 double per_Num(double x,double y, ...) {
 
 	va_list n;
@@ -419,7 +419,7 @@ double per_Num(double x,double y, ...) {
 	return sum / count;
 
 }
-//  æ£‹ç›˜ç»˜åˆ¶å‡½æ•° å¹¶ç”Ÿæˆæ—¶é—´ç‚¹
+//  ÆåÅÌ»æÖÆº¯Êı ²¢Éú³ÉÊ±¼äµã
 void outputChess(char *A) {
 	printf(" \n    +---+---+");
 	for (size_t i = 0; i < MAX_L; i++) printf("---+---+");
@@ -449,70 +449,70 @@ void outputChess(char *A) {
 }
 
 
-//  ä¸»è¦
+//  Ö÷Òª
 int main(void) {
 
-	//  è¾“å…¥æ§åˆ¶å­—ç¬¦ä¸²
+	//  ÊäÈë¿ØÖÆ×Ö·û´®
 	char char_a[8] = { '\0' };
 	char chara = '\0';
-	//  ä¸‹æ£‹çš„çŸ©é˜µæ•°æ®
+	//  ÏÂÆåµÄ¾ØÕóÊı¾İ
 	/*char Ary[MAX_L][MAX_L] = { ' ' };*/
 	char *xy;
 	xy = calloc(MAX_L*MAX_L,sizeof(char));
-	//  å†å²ä¸‹æ£‹çŸ©é˜µæ•°æ®
+	//  ÀúÊ·ÏÂÆå¾ØÕóÊı¾İ
 	/*char old_Ary[][MAX_L][MAX_L] = { ' ' };*/
-	//  æ—¶é—´èŠ‚ç‚¹
+	//  Ê±¼ä½Úµã
 	int index_main = -1;
-	//  æ§åˆ¶æŒ‡ä»¤ å­—ç¬¦æ•°ç»„
+	//  ¿ØÖÆÖ¸Áî ×Ö·ûÊı×é
 	char *INPUT = { '\0' };
-	//  ä¸‹æ£‹æ­¥æ•°å­—ç¬¦
+	//  ÏÂÆå²½Êı×Ö·û
 	char X_n[2] = { ' ' };
 	char Y_n[2] = { ' ' };
-	//  ä¸‹æ£‹æ­¥æ•° ATOI æ•°å­—
+	//  ÏÂÆå²½Êı ATOI Êı×Ö
 	int x_n = 0;
 	int y_n = 0;
-	//  ç©å®¶ä»£å· 0 = ç©å®¶  1 = ç”µè„‘
+	//  Íæ¼Ò´úºÅ 0 = Íæ¼Ò  1 = µçÄÔ
 	unsigned player = 0;
-	//  å¾—åˆ†
+	//  µÃ·Ö
 	unsigned point_you = 0;
 	unsigned point_pc = 0;
-	//  ä¸ºAIå‡½æ•°åˆ†é…å†…å­˜ç©ºé—´
+	//  ÎªAIº¯Êı·ÖÅäÄÚ´æ¿Õ¼ä
 	unsigned *ab; 
 	ab = calloc(2, sizeof(unsigned));
-	printf(" \n homework 2018 - 08 -15 äº”å­æ£‹ç”µè„‘å¯¹æˆ˜å°æ¸¸æˆ \n ");
-	printf(" \n å¯ç”¨å‘½ä»¤ yes no show start back new \n ");
-	printf(" \n ç©å®¶ 1 æ£‹å­ä¸º â€» -------- ç©å®¶ 2 æˆ–ç”µè„‘ æ£‹å­ä¸º ã€‡ \n ");
+	printf(" \n homework 2018 - 08 -15 Îå×ÓÆåµçÄÔ¶ÔÕ½Ğ¡ÓÎÏ· \n ");
+	printf(" \n ¿ÉÓÃÃüÁî yes no show start back new \n ");
+	printf(" \n Íæ¼Ò 1 Æå×ÓÎª ¡ù -------- Íæ¼Ò 2 »òµçÄÔ Æå×ÓÎª ©– \n ");
 	printf(" \n ------------------------------------------------ \n ");
-	printf(" \n å¼€å§‹æ¸¸æˆ è¾“å…¥ start å›è½¦ é€€å‡º è¾“å…¥ q å›è½¦ \n\n "); 
-	//  åˆå§‹åŒ– æ£‹ç›˜æ ¼å±€ å…¨ä¸ºç©º
+	printf(" \n ¿ªÊ¼ÓÎÏ· ÊäÈë start »Ø³µ ÍË³ö ÊäÈë q »Ø³µ \n\n "); 
+	//  ³õÊ¼»¯ ÆåÅÌ¸ñ¾Ö È«Îª¿Õ
 	for (size_t i = 0; i < MAX_L*MAX_L; i++) {
 		xy[i] = ' ';
 	}
 	while (true) {
-		//  ç¬¬ä¸€é“ è¾“å…¥ è¿›å…¥æ¸¸æˆå‰æ§åˆ¶
+		//  µÚÒ»µÀ ÊäÈë ½øÈëÓÎÏ·Ç°¿ØÖÆ
 		INPUT = ope_INPUT(char_a);
-		//  é€€å‡º
+		//  ÍË³ö
 		if (INPUT == "quit") {
 			break;
 		}
-		//  å¼€å±€
+		//  ¿ª¾Ö
 		else if (strcmp(INPUT, "start\n") == 0 && index_main == -1) {
-			//  å¼€å±€å‰å¯è¾“å…¥çš„å‘½ä»¤
+			//  ¿ª¾ÖÇ°¿ÉÊäÈëµÄÃüÁî
 			outputChess(xy);
 			index_main = 0;
-			printf(" \n å¼€å±€ - - - - - - - - index = %u \n\n ",index_main);
+			printf(" \n ¿ª¾Ö - - - - - - - - index = %u \n\n ",index_main);
 			for (size_t i = 0; i < 8; i++) char_a[i] = '\0';
 		}
 		else if (strcmp(INPUT, "show\n") == 0 && index_main != 0) {
-			//  å¼€å±€å å‘½ä»¤ 1 æ˜¾ç¤ºåˆ†æ•°
-			printf(" \n å·²è¿›è¡Œ%uæ­¥ \n\n ", index_main);
-			printf(" \n Player å¾—åˆ† %u ! \n ",point_you);
-			printf(" \n AIayer å¾—åˆ† %u ! \n\n ",point_pc);
+			//  ¿ª¾Öºó ÃüÁî 1 ÏÔÊ¾·ÖÊı
+			printf(" \n ÒÑ½øĞĞ%u²½ \n\n ", index_main);
+			printf(" \n Player µÃ·Ö %u ! \n ",point_you);
+			printf(" \n AIayer µÃ·Ö %u ! \n\n ",point_pc);
 		}
 		//else if (index_main != 0 && strcmp(INPUT, "back\n") == 0) {
-		//	//  å¼€å±€å å‘½ä»¤ 2 æ‚”æ£‹1æ­¥
+		//	//  ¿ª¾Öºó ÃüÁî 2 »ÚÆå1²½
 		//	index_main--;
-		//	printf(" \n é€€ä¸€æ­¥ - - - - - - - - index = %u \n\n ",index_main);
+		//	printf(" \n ÍËÒ»²½ - - - - - - - - index = %u \n\n ",index_main);
 		//}
 		else if (index_main != -1 && (isdigit(*(INPUT + 0)) && isdigit(*(INPUT + 1)) && isdigit(*(INPUT + 3)) && isdigit(*(INPUT + 4)) && *(INPUT + 2) == ' '&& *(INPUT + 5) == '\n')) {
 			*(X_n + 0) = *(INPUT + 0);
@@ -525,9 +525,9 @@ int main(void) {
 			printf(" \n the command line for %u and %u \n\n ",x_n,y_n);
 			if (x_n <= MAX_L && y_n <= MAX_L) {
 				index_main ++;
-				printf(" \n å·²è¿›è¡Œ%uæ­¥ \n\n ", index_main);
+				printf(" \n ÒÑ½øĞĞ%u²½ \n\n ", index_main);
 				xy[(x_n - 1) * MAX_L + y_n - 1] = 'X';
-				//  AI  ä¸‹æ£‹ç®—æ³•
+				//  AI  ÏÂÆåËã·¨
 				if (index_main == 1) ab = AI_start(xy, ab);
 				else  ab = AI_end(xy, ab);
 				
@@ -550,6 +550,6 @@ int main(void) {
 	printf(" \n ");
 	free(xy);
 	free(ab);
-	//é€€å‡º
+	//ÍË³ö
 	//system("pause");
 }

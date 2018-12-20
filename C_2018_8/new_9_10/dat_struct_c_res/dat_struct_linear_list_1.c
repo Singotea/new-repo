@@ -4,6 +4,7 @@
 
 int main(void){
     printf("\n ======== Fo_linear_list ======== \n");
+    unsigned int Num_ctrl_0 = 0;
     // struct famale
     struct list_A_1{
         unsigned char name[20];
@@ -18,9 +19,9 @@ int main(void){
     struct list_A_1 *later = NULL;
     struct list_A_1 *end = NULL;
 
-    for( ; ; ){
-        int Age = 0;
-        int s_ID = 0;
+    unsigned int Age = 0;
+    unsigned int s_ID = 0;
+    while(Num_ctrl_0 == 0){
         printf("\n input name of current dat \n");
         fgets(curt->name, 18, stdin);
         // while(getchar != '\n');
@@ -28,8 +29,8 @@ int main(void){
         do {
             printf("\n age Not less than 6 and Not bigger than 40 \n");
             scanf("%d", &Age);
-            }
-            while (Age > 40 || Age < 6);
+        }
+        while (Age > 40 || Age < 6);
         curt->age = Age;
         // ============= this turn
         if(first == NULL){
