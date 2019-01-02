@@ -7,9 +7,10 @@ int main(void){
     unsigned int Num_ctrl_0 = 0;
     // struct famale
     struct list_A_1{
-        unsigned char name[20];
-        unsigned int age;
+        unsigned char Name[20];
+        unsigned int Age;
         unsigned int ID;
+
         unsigned *next;
         unsigned *prev;
     };
@@ -19,19 +20,28 @@ int main(void){
     struct list_A_1 *later = NULL;
     struct list_A_1 *end = NULL;
 
-    unsigned int Age = 0;
+    unsigned int age = 0;
     unsigned int s_ID = 0;
+    unsigned char name[20] = {'\0'};
     while(Num_ctrl_0 == 0){
-        printf("\n input name of current dat \n");
-        fgets(curt->name, 18, stdin);
+        age = 0;
+        s_ID = 0;
+        for(size_t i = 0;i < 20; i++){
+            name[i] = '\0';
+        }
+        printf("\n input Name of current dat \n");
+        fgets(name, 18, stdin);
         // while(getchar != '\n');
-        printf("\n input age of current dat \n");
+        for(size_t i = 0;i < 20; i++){
+            curt->Name[i] = name[i];
+        }
+        printf("\n input Age of current dat \n");
         do {
             printf("\n age Not less than 6 and Not bigger than 40 \n");
-            scanf("%d", &Age);
+            scanf("%d", &age);
         }
-        while (Age > 40 || Age < 6);
-        curt->age = Age;
+        while (age > 40 || age < 6);
+        curt->Age = age;
         // ============= this turn
         if(first == NULL){
             curt->prev = NULL;
@@ -47,7 +57,7 @@ int main(void){
     }
     printf("\n ================================================ \n");
     while(curt->next == NULL){
-        printf("\n curtID \n",curt->ID);
+        // printf("\n curt_ID = %d \n",curt->ID);
         curt = curt->next;
     }
 }

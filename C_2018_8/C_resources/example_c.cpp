@@ -6,7 +6,7 @@ int main(void){
     int s = 1;
     char Str[10][10] = {'\0'};
     while (s != 0){
-        // 循环体
+        // 循环体 不符合条件即跳出 break;
         printf("\n ============= line %d ============= \n",a);
         printf(" name 1 please enter with Enter\n");
         fgets(Str[a],9,stdin);
